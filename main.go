@@ -13,16 +13,26 @@ const (
 	lowerCaseOption = true
 )
 
+func usage() {
+	println("Usage git get <URL>")
+}
+
 func main() {
 	if len(os.Args) < 2 {
-		println("Usage git get <URL>")
+		usage()
 		os.Exit(1)
 	}
 
 	gitUrl := os.Args[1]
+
+	if len(gitUrl) == 0 {
+		usage()
+		os.Exit(1)
+	}
+
 	h, p, err := parseUrl(gitUrl)
 	if err != nil {
-		println(err)
+		println(err.Error())
 		os.Exit(1)
 	}
 
