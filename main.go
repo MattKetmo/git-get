@@ -10,7 +10,7 @@ import (
 
 const (
 	baseDir         = "src"
-	lowerCaseOption = true
+	lowerCaseOption = false
 )
 
 func usage() {
